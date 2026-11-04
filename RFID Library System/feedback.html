@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="auth-guard.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visitor Feedback — UEP Library Visitor Management</title>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ============================= SIDEBAR ============================= -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">
+       <img src="logo.png" alt="UEP Seal" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      </div>
+      <div class="brand-text">
+        <div class="b-title">UEP LIBRARY</div>
+        <div class="b-sub">Visitor System</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-scroll">
+      <div class="nav-label">Overview</div>
+      <a class="nav-item" href="dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        <span class="nav-text">Dashboard</span>
+      </a>
+
+      <div class="nav-label">Visitor Management</div>
+      <a class="nav-item" href="attendance.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.3"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
+        <span class="nav-text">RFID Attendance</span>
+      </a>
+      <a class="nav-item" href="statistics.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        <span class="nav-text">Visitor Statistics</span>
+      </a>
+      <a class="nav-item" href="reports.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/><path d="M8 14h3M8 17h6"/></svg>
+        <span class="nav-text">Periodic Reports</span>
+      </a>
+      <a class="nav-item active" href="feedback.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="nav-text">Visitor Feedback</span>
+      </a>
+
+      <div class="nav-label">Administration</div>
+      <a class="nav-item" href="users.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="nav-text">User Management</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="toggle-btn" data-action="toggle-sidebar" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/></svg>
+        <span class="toggle-text">Collapse sidebar</span>
+      </button>
+      <a class="logout-link" href="login.html" id="logoutLink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        <span class="logout-text">Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================== MAIN ================================ -->
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;">
+        <button class="mobile-menu-btn" data-action="open-mobile-nav" type="button" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <div class="topbar-left">
+          <span class="topbar-eyebrow">Visitor Management System</span>
+          <h1 class="topbar-title">Visitor Feedback</h1>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="clock-chip"><span class="dot"></span><span data-role="live-clock">—</span></div>
+        <div class="profile-chip">
+          <div class="profile-avatar">CJ</div>
+          <div class="profile-meta">
+            <div class="p-name">Librarian on Duty</div>
+            <div class="p-role">Circulation Desk</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <section class="info-banner">
+        <div class="info-banner-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        </div>
+        <div>
+          <strong>Feedback is collected automatically.</strong>
+          There's no separate feedback station. The same RFID tap a student uses to time out at the <a href="attendance.html">Attendance</a> kiosk also opens a quick 3-option rating (Very Bad / Bad / Not So Bad) right there. This page just shows what's come in today.
+        </div>
+      </section>
+
+      <div class="feedback-grid">
+
+        <!-- ===================== LEFT: TODAY AT A GLANCE ===================== -->
+        <section class="card card-pad">
+          <div class="section-heading"><div><h2>Today at a glance</h2><p class="sh-sub">Ratings submitted since midnight</p></div></div>
+          <div class="glance-grid">
+            <div class="glance-stat">
+              <span class="glance-num" id="glanceTotal">0</span>
+              <span class="glance-label">Total responses</span>
+            </div>
+            <div class="glance-stat glance-verybad">
+              <span class="glance-num" id="glanceVeryBad">0</span>
+              <span class="glance-label">😞 Very Bad</span>
+            </div>
+            <div class="glance-stat glance-bad">
+              <span class="glance-num" id="glanceBad">0</span>
+              <span class="glance-label">🙁 Bad</span>
+            </div>
+            <div class="glance-stat glance-notsobad">
+              <span class="glance-num" id="glanceNotSoBad">0</span>
+              <span class="glance-label">😕 Not So Bad</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== RIGHT: SUMMARY + LOG ===================== -->
+        <div class="col-stack">
+          <section class="card card-pad">
+            <div class="section-heading"><div><h2>Rating distribution</h2><p class="sh-sub">All feedback collected today</p></div></div>
+            <div class="chart-box"><canvas id="ratingChart"></canvas></div>
+          </section>
+
+          <section class="card card-pad">
+            <div class="section-heading"><div><h2>Recent feedback</h2></div></div>
+            <ul class="feedback-list" id="feedbackList">
+              <!-- populated by feedback.js as real feedback comes in -->
+            </ul>
+            <p class="empty-note" id="feedbackEmptyNote">No feedback submitted yet today.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="sidebar.js"></script>
+<script src="feedback.js"></script>
+</body>
+</html>

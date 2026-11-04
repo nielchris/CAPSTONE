@@ -1,0 +1,59 @@
+/* =========================================================================
+   feedback.css — page-specific styles for feedback.html
+   feedback.html is now a read-only dashboard: the actual rating capture
+   happens on the RFID Attendance kiosk right after a student times out
+   (see attendance.css / attendance.js .feedback-step / .rating-grid).
+   ========================================================================= */
+
+.feedback-grid{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.col-stack{display:flex;flex-direction:column;gap:18px;}
+
+/* ---- "Today at a glance" stat cards ---- */
+.glance-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.glance-stat{
+  display:flex;flex-direction:column;gap:4px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px 14px;
+}
+.glance-num{font-family:var(--f-display);font-weight:700;font-size:26px;color:var(--navy-deep);}
+.glance-label{font-size:11.5px;font-weight:600;color:var(--muted);}
+.glance-stat.glance-verybad{border-color:#F5C6C2;background:var(--danger-bg);}
+.glance-stat.glance-verybad .glance-num{color:var(--danger);}
+.glance-stat.glance-bad{border-color:#F5C6C2;background:var(--danger-bg);}
+.glance-stat.glance-bad .glance-num{color:var(--danger);}
+.glance-stat.glance-notsobad{border-color:#EBD3A6;background:var(--warn-bg);}
+.glance-stat.glance-notsobad .glance-num{color:var(--warn);}
+
+.chart-box{position:relative;height:210px;}
+
+/* ---- Recent feedback list ---- */
+.feedback-list{display:flex;flex-direction:column;gap:14px;}
+.feedback-list li{
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:12px 14px;
+}
+.fl-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;}
+.fl-name{font-size:13px;font-weight:700;color:var(--ink);}
+.fl-rate{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.fl-rate.rate-3{color:var(--warn);background:var(--warn-bg);}
+.fl-rate.rate-2, .fl-rate.rate-1{color:var(--danger);background:var(--danger-bg);}
+.fl-time{font-size:11px;color:var(--muted);}
+
+@media (max-width: 1180px){
+  .feedback-grid{grid-template-columns:1fr;}
+}
+@media (max-width: 480px){
+  .glance-grid{grid-template-columns:1fr 1fr;}
+}

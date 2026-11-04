@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="auth-guard.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visitor Statistics — UEP Library Visitor Management</title>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="statistics.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ============================= SIDEBAR ============================= -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">
+        <img src="logo.png" alt="UEP Seal" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      </div>
+      <div class="brand-text">
+        <div class="b-title">UEP LIBRARY</div>
+        <div class="b-sub">Visitor System</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-scroll">
+      <div class="nav-label">Overview</div>
+      <a class="nav-item" href="dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        <span class="nav-text">Dashboard</span>
+      </a>
+
+      <div class="nav-label">Visitor Management</div>
+      <a class="nav-item" href="attendance.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.3"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
+        <span class="nav-text">RFID Attendance</span>
+      </a>
+      <a class="nav-item active" href="statistics.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        <span class="nav-text">Visitor Statistics</span>
+      </a>
+      <a class="nav-item" href="reports.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/><path d="M8 14h3M8 17h6"/></svg>
+        <span class="nav-text">Periodic Reports</span>
+      </a>
+      <a class="nav-item" href="feedback.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="nav-text">Visitor Feedback</span>
+      </a>
+
+      <div class="nav-label">Administration</div>
+      <a class="nav-item" href="users.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="nav-text">User Management</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="toggle-btn" data-action="toggle-sidebar" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/></svg>
+        <span class="toggle-text">Collapse sidebar</span>
+      </button>
+      <a class="logout-link" href="login.html" id="logoutLink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        <span class="logout-text">Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================== MAIN ================================ -->
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;">
+        <button class="mobile-menu-btn" data-action="open-mobile-nav" type="button" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <div class="topbar-left">
+          <span class="topbar-eyebrow">Visitor Management System</span>
+          <h1 class="topbar-title">Visitor Statistics</h1>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="clock-chip"><span class="dot"></span><span data-role="live-clock">—</span></div>
+        <div class="profile-chip">
+          <div class="profile-avatar">CJ</div>
+          <div class="profile-meta">
+            <div class="p-name">Librarian on Duty</div>
+            <div class="p-role">Circulation Desk</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <!-- ===== FILTER BAR ===== -->
+      <section class="card filter-bar">
+        <div class="field" style="margin:0;">
+          <label for="fFrom">From</label>
+          <input type="date" id="fFrom" value="2026-07-24">
+        </div>
+        <div class="field" style="margin:0;">
+          <label for="fTo">To</label>
+          <input type="date" id="fTo" value="2026-07-30">
+        </div>
+        <div class="field" style="margin:0;">
+          <label for="fCollege">College / Department</label>
+          <select id="fCollege">
+            <option>All colleges</option>
+            <option>College of Science</option>
+            <option>College of Education</option>
+            <option>College of Engineering</option>
+            <option>College of Business Administration</option>
+            <option>College of Arts and Communication</option>
+            <option>College of Agriculture and Forestry</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="button">Apply filters</button>
+      </section>
+
+      <!-- ===== SUMMARY ROW ===== -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="st-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="st-value">1,684</div>
+          <div class="st-label">Total visitors — this week</div>
+        </div>
+        <div class="stat-card">
+          <div class="st-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+          <div class="st-value">1,349</div>
+          <div class="st-label">Students</div>
+        </div>
+        <div class="stat-card">
+          <div class="st-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v16M4 9h4"/></svg></div>
+          <div class="st-value">211</div>
+          <div class="st-label">Faculty &amp; staff</div>
+        </div>
+        <div class="stat-card">
+          <div class="st-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a13 13 0 0 0 0 18M12 3a13 13 0 0 1 0 18M3 12h18"/></svg></div>
+          <div class="st-value">124</div>
+          <div class="st-label">Outside visitors</div>
+        </div>
+      </div>
+
+      <!-- ===== CHART GRID ===== -->
+      <div class="chart-grid">
+        <section class="card card-pad chart-card wide">
+          <div class="section-heading">
+            <div><h2>Visitors by college / department</h2><p class="sh-sub">Selected date range</p></div>
+          </div>
+          <div class="chart-box tall"><canvas id="collegeBar"></canvas></div>
+        </section>
+
+        <section class="card card-pad chart-card">
+          <div class="section-heading"><div><h2>Visitor type</h2><p class="sh-sub">Student · Faculty · Outsider</p></div></div>
+          <div class="chart-box"><canvas id="typeDonut"></canvas></div>
+          <div class="legend-row">
+            <span><i style="background:#1D5FC4"></i>Students</span>
+            <span><i style="background:#7A3FC9"></i>Faculty</span>
+            <span><i style="background:#EFA93E"></i>Outsiders</span>
+          </div>
+        </section>
+
+        <section class="card card-pad chart-card">
+          <div class="section-heading"><div><h2>Gender distribution</h2><p class="sh-sub">All visitor types</p></div></div>
+          <div class="chart-box"><canvas id="genderDonut2"></canvas></div>
+          <div class="legend-row">
+            <span><i style="background:#1D5FC4"></i>Female</span>
+            <span><i style="background:#EFA93E"></i>Male</span>
+          </div>
+        </section>
+
+        <section class="card card-pad chart-card wide">
+          <div class="section-heading">
+            <div><h2>7-day visitor trend</h2><p class="sh-sub">Total footfall per day</p></div>
+          </div>
+          <div class="chart-box tall"><canvas id="trendLine"></canvas></div>
+        </section>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="sidebar.js"></script>
+<script src="statistics.js"></script>
+</body>
+</html>

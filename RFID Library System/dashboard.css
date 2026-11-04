@@ -1,0 +1,63 @@
+/* =========================================================================
+   dashboard.css — page-specific styles for dashboard.html
+   ========================================================================= */
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1.7fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+
+.col-stack{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.donut-wrap{
+  display:flex;
+  justify-content:center;
+  padding:6px 0 4px;
+}
+
+.legend-row{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  margin-top:10px;
+  font-size:12.5px;
+  color:var(--ink-soft);
+}
+.legend-row span{display:flex;align-items:center;gap:7px;}
+.legend-row i{width:9px;height:9px;border-radius:3px;display:inline-block;}
+
+.quick-actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.qa-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink-soft);
+  transition:border-color var(--transition), background var(--transition), color var(--transition);
+}
+.qa-item:hover{border-color:var(--blue-primary);background:var(--blue-pale-2);color:var(--blue-primary);}
+.qa-icon{
+  width:32px;height:32px;border-radius:9px;
+  background:var(--blue-pale);color:var(--blue-primary);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.qa-icon svg{width:16px;height:16px;}
+
+@media (max-width: 980px){
+  .grid-2{grid-template-columns:1fr;}
+}

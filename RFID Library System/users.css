@@ -1,0 +1,58 @@
+/* =========================================================================
+   users.css — page-specific styles for users.html
+   ========================================================================= */
+
+.page-note{
+  font-size:13px;
+  color:var(--muted);
+  max-width:720px;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+
+.users-stat-grid .st-value{font-size:22px;}
+
+.user-form{
+  background:var(--blue-pale-2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  padding:18px 20px;
+  margin-bottom:20px;
+}
+.user-form .result-actions{
+  display:grid;grid-template-columns:auto 1fr;gap:10px;
+  margin-top:4px;
+}
+
+.role-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:.03em;
+}
+.role-pill.admin{color:#7A3FC9;background:#F2E9FC;}
+.role-pill.librarian{color:var(--blue-primary);background:var(--blue-pale);}
+.role-pill.assistant{color:var(--warn);background:var(--warn-bg);}
+
+.status-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:600;color:var(--ink-soft);
+}
+.status-pill .dot{width:7px;height:7px;border-radius:50%;}
+.status-pill.active .dot{background:var(--success);}
+.status-pill.inactive .dot{background:var(--muted);}
+
+.row-actions{display:flex;gap:8px;justify-content:flex-end;}
+.row-actions button{
+  width:30px;height:30px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);
+  transition:border-color var(--transition), color var(--transition);
+}
+.row-actions button svg{width:14px;height:14px;}
+.row-actions .edit-btn:hover{border-color:var(--blue-primary);color:var(--blue-primary);}
+.row-actions .toggle-btn-row:hover{border-color:var(--warn);color:var(--warn);}
+.row-actions .delete-btn:hover{border-color:var(--danger);color:var(--danger);}

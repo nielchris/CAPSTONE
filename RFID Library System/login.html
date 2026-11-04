@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — UEP Library Visitor Management</title>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="login.css">
+</head>
+<body class="login-body">
+
+<div class="login-shell">
+
+  <!-- ===================== LEFT: BRAND / HERO ===================== -->
+  <div class="login-hero">
+    <div class="hero-noise"></div>
+    <div class="hero-rings">
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-brand">
+        <div class="hero-mark">
+          <!-- Replace with <img src="assets/uep-seal.png" alt="UEP Seal"> for the official school seal -->
+          <img src="logo.png" alt="UEP Seal" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        </div>
+        <div>
+          <div class="hero-title">UEP LIBRARY</div>
+          <div class="hero-sub">Visitor Management System</div>
+        </div>
+      </div>
+
+      <h1 class="hero-headline">Every tap, <br>accounted for.</h1>
+      <p class="hero-copy">Standalone RFID attendance, live occupancy, and visitor feedback for the University of Eastern Philippines Library — no manual logbooks, no re-encoding.</p>
+
+      <ul class="hero-points">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.3"/><path d="M2 10h20"/></svg>Tap-to-register RFID reader</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Live time in / time out tracking</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>Daily, weekly, monthly &amp; yearly reports</li>
+      </ul>
+    </div>
+
+    <div class="hero-footer">© 2026 University of Eastern Philippines &mdash; University Library</div>
+  </div>
+
+  <!-- ===================== RIGHT: LOGIN FORM ===================== -->
+  <div class="login-panel">
+    <div class="login-card">
+      <div class="login-card-head">
+        <h2>Staff sign in</h2>
+        <p>Enter your library staff account to open the dashboard.</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="loginUser">Email or username</label>
+          <input type="text" id="loginUser" placeholder="name@uep.edu.ph" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="loginPass">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="loginPass" placeholder="Enter your password" autocomplete="current-password" required>
+            <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="login-row">
+          <label class="remember-me">
+            <input type="checkbox" id="rememberMe">
+            <span>Remember me on this device</span>
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <p class="login-error" id="loginError" hidden>Please enter both your email/username and password.</p>
+
+        <button class="btn btn-primary btn-block login-submit" type="submit">Sign In</button>
+      </form>
+
+      <div class="login-divider"><span>Reader-side kiosk?</span></div>
+      <a class="btn btn-outline btn-block" href="attendance.html">Open RFID Attendance Kiosk</a>
+      <p class="login-footnote" style="margin-top:8px;">The kiosk is a public tap station for students and visitors — it doesn't require a staff account. Everything else (Dashboard, Statistics, Reports, Users, Feedback) needs staff sign-in.</p>
+
+      <p class="login-footnote">Access is limited to authorized library staff. Contact your system administrator if you need an account — see <a href="users.html">User Management</a>.</p>
+    </div>
+  </div>
+
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
